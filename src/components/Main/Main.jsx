@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useDebounce } from "use-debounce/lib";
 import Form from "../Form";
 import PokemonList from "../PokemonList";
 
 const Main = () => {
   const [pokemon, setPokemon] = useState('')
+  // useDebounce
   const [pokemonList, setPokemonList] = useState([])
 
   useEffect(() => {
@@ -17,8 +19,7 @@ const Main = () => {
         script: pokemonData.sprites.front_default
       }
 
-      // setPokemonList([...pokemonList, newPokemon])
-      setPokemonList([newPokemon])
+      setPokemonList([...pokemonList, newPokemon])
     }
 
     addPokemon();
