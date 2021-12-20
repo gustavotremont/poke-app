@@ -1,31 +1,38 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useDebounce } from "use-debounce/lib";
+import { useDebounce } from "use-debounce";
 import Form from "../Form";
 import PokemonList from "../PokemonList";
 
 const Main = () => {
-  const [pokemon, setPokemon] = useState('')
-  // useDebounce
+  const [pokemon, setPokemon] = useState('')  
+  const [debouncedValue] = useDebounce(pokemon, 2000);
   const [pokemonList, setPokemonList] = useState([])
 
   useEffect(() => {
     const addPokemon = async () => {
-      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-      const pokemonData = res.data;
+      if(debouncedValue) {
+        if(pokemonList.length === 0 || pokemonList.every(pokemon => pokemon.name !== debouncedValue)){
+          try {
+            const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debouncedValue}`)
+            const pokemonData = res.data;
+          
+            const newPokemon = {
+              name: pokemonData.name,
+              script: pokemonData.sprites.front_default
+            }        
+            setPokemonList([...pokemonList, newPokemon])
     
-      const newPokemon = {
-        name: pokemonData.name,
-        script: pokemonData.sprites.front_default
+          } catch (error) {
+            console.log(error);
+          }     
+        }
       }
-
-      setPokemonList([...pokemonList, newPokemon])
     }
-
     addPokemon();
-  }, [pokemon])
+  }, [debouncedValue])
 
-  const getPokemon = (pokemonName) => setPokemon(pokemonName); 
+  const getPokemon = (pokemonName) => setPokemon(pokemonName.toLowerCase()); 
 
   return (
     <main>
