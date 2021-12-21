@@ -2,19 +2,13 @@ import React from "react";
 
 const Form = (props) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    props.getPokemon(e.target.pokemonName.value)
-    e.target.pokemonName.value = ''
-  }
+  const handleChange = e => props.getPokemon(e.target.value)
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label htmlFor="pokemonName">Find a Pokemon</label>
-        <input type="text" name="pokemonName" id="pokemonName"/>
-
-        <input type="submit" value="Search" />
+        <input type="text" name="pokemonName" id="pokemonName" onChange={handleChange}/>
       </form>
     </section>
   )

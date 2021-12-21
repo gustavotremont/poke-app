@@ -1,6 +1,6 @@
 import React from "react";
 
-const PokemonCard = ({pokeInfo, key}) => {
+const PokemonCard = ({pokeInfo}, key) => {
   return (
       <section key={key} >
           <p>{pokeInfo.name}</p>
