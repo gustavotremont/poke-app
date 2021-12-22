@@ -40,7 +40,7 @@ const Main = () => {
   return (
     <main>
       <Routes>
-        <Route path='/' element={<PokemonList pokemonData={pokemonList}/>}/>
+        <Route path='/' element={<PokemonList/>}/>
         <Route path='/new' element={<CreatePokemon/>}/>
         <Route path='/pokemon' element={<Details/>}/>
         <Route path='/search' element={<Search/>}/>

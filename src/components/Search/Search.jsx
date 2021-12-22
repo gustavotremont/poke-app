@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import {pokemonContext} from '../../context/pokemonContext' 
 import axios from "axios";
 import { useDebounce } from "use-debounce";
 import Form from "./Form";
@@ -9,6 +10,7 @@ const Search = () => {
   const [pokemon, setPokemon] = useState('')  
   const [debouncedValue] = useDebounce(pokemon, 2000);
   const [pokemonCard, setPokemonCard] = useState({})
+  const { addPokeToList } = useContext(pokemonContext)
 
   useEffect(() => {
 
@@ -19,10 +21,14 @@ const Search = () => {
             const pokemonData = res.data;
           
             const newPokemon = {
+              id: pokemonData.id,
               name: pokemonData.name,
-              script: pokemonData.sprites.front_default
+              script: pokemonData.sprites.other["official-artwork"].front_default,
+              typeOne: pokemonData.types[0].type.name,
+              typeTwo: pokemonData.types[1] ? pokemonData.types[1].type.name : ""
             }        
-            setPokemonCard(newPokemon)
+            setPokemonCard(newPokemon);
+            addPokeToList(newPokemon);
     
           } catch (error) {
             console.log(error);
