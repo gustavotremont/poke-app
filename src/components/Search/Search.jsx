@@ -3,7 +3,7 @@ import {pokemonContext} from '../../context/pokemonContext'
 import axios from "axios";
 import { useDebounce } from "use-debounce";
 import Form from "./Form";
-import Card from "./Card"
+import Card from "../Card"
 
 const Search = () => {
 

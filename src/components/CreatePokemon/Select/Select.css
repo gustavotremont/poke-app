@@ -1,18 +1,18 @@
-.form-body {
+.select-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 0 32px;
+    text-align: start;
 }
 
-.form-label {
+.select-label {
     color: #292929;
-    font-size: 32px;
+    font-size: 24px;
 }
 
-.form-Input {
-    margin-top: 16px;
+.select-input {
+    margin-top: 8px;
     height: 28px;
-    width: 80%;
     border-radius: 0%;
     border-color: #623108;
     font-size: 16px;

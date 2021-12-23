@@ -1,3 +1,4 @@
+import './Form.css'
 import React from "react";
 
 const Form = (props) => {
@@ -6,9 +7,9 @@ const Form = (props) => {
 
   return (
     <section>
-      <form>
-        <label htmlFor="pokemonName">Find a Pokemon</label>
-        <input type="text" name="pokemonName" id="pokemonName" onChange={handleChange}/>
+      <form className='form-body'>
+        <label className='form-label' htmlFor="pokemonName">Find a Pokemon</label>
+        <input className='form-Input' type="text" name="pokemonName" id="pokemonName" onChange={handleChange}/>
       </form>
     </section>
   )

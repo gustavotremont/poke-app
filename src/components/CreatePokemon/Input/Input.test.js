@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import PokemonCard from "./PokemonCard";
+import Input from "./Input";
 
-describe("PokemonCard", () => {
+describe("Input", () => {
   test("matches snapshot", () => {
-    const wrapper = shallow(<PokemonCard />);
+    const wrapper = shallow(<Input />);
     expect(wrapper).toMatchSnapshot();
   });
 });
