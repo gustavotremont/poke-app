@@ -1,7 +1,11 @@
+import './Main.css'
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import { useDebounce } from "use-debounce";
-import Form from "../Form";
+import Details from "../Details";
+import CreatePokemon from '../CreatePokemon'
+import Search from '../Search'
 import PokemonList from "../PokemonList";
 
 const Main = () => {
@@ -36,8 +40,12 @@ const Main = () => {
 
   return (
     <main>
-        <Form getPokemon={getPokemon}/>
-        <PokemonList pokemonData={pokemonList}/>
+      <Routes>
+        <Route path='/' element={<PokemonList/>}/>
+        <Route path='/new' element={<CreatePokemon/>}/>
+        <Route path='/pokemon' element={<Details/>}/>
+        <Route path='/search' element={<Search/>}/>
+      </Routes>
     </main>
   )
 };

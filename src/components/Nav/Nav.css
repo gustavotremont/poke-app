@@ -1,0 +1,12 @@
+.nav-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item{
+    text-decoration: none;
+    color: #292929;
+    font-size: 22px;
+    font-weight: 700;
+}

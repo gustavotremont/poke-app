@@ -1,10 +1,12 @@
-import React from "react";
-import PokemonCard from "./PokemonCard/PokemonCard";
-import { v4 as uuidv4 } from 'uuid';
+import React, {useContext} from "react";
+import Card from "../Card";
+import {pokemonContext} from '../../context/pokemonContext'
 
-const PokemonList = ({pokemonData}) => {
+const PokemonList = () => {
 
-  const printPokemons = () => pokemonData.map(pokemon => <PokemonCard pokeInfo={pokemon} key={uuidv4()}/>)
+  const { pokemonList } = useContext(pokemonContext);
+
+  const printPokemons = () => pokemonList.map(pokemon => <Card pokeInfo={pokemon}/>)
 
   return (
     <section>
