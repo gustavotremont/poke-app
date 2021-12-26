@@ -1,23 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import {pokemonContext} from '../../context/pokemonContext' 
 import axios from "axios";
-import { useDebounce } from "use-debounce";
 import Form from "./Form";
 import Card from "../Card"
 
 const Search = () => {
 
-  const [pokemon, setPokemon] = useState('')  
-  const [debouncedValue] = useDebounce(pokemon, 2000);
+  const [pokemon, setPokemon] = useState('')
   const [pokemonCard, setPokemonCard] = useState('')
   const { addPokeToList } = useContext(pokemonContext)
 
   useEffect(() => {
 
     const addPokemon = async () => {
-      if(debouncedValue) {
+      if(pokemon) {
           try {
-            const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${debouncedValue}`)
+            const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
             const pokemonData = res.data;
           
             const newPokemon = {
@@ -37,7 +35,7 @@ const Search = () => {
       }
     }
     addPokemon();
-  }, [debouncedValue])
+  }, [pokemon])
 
   const getPokemon = (pokemonName) => setPokemon(pokemonName.toLowerCase());
 
