@@ -1,9 +1,7 @@
 .pokemon-details {
     text-decoration: none;
-    background-color: #de9400;
-    transition: 0.5s;
 }
 
-.pokemon-details:hover {
+.pokemon-details section:hover {
     background-color: #f6bd20;
 }

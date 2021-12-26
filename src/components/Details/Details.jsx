@@ -44,7 +44,7 @@ const Details = () => {
             <section className='detail-section'>
               <h2 className='detail-section-title'>Moves</h2>
               <Scrollbars style={{ width: 300, height: 300 }}>
-                <table>
+                <table className='detail-moves-table'>
                   <tr>
                     <th>Move</th>
                     <th>Level</th>
