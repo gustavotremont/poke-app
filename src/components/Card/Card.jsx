@@ -6,6 +6,7 @@ const Card = ({pokeInfo}) => {
   return (
     <section key={uuidv4()} className="card-body">
           <img className="card-image" src={pokeInfo.script} alt={pokeInfo.name} />
+          {pokeInfo.id ? <p className="card-type">ID: {pokeInfo.id}</p> : null} 
           <p className="card-name" >{pokeInfo.name}</p>
           { pokeInfo.typeOne
             ?   <div className="card-types">

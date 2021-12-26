@@ -1,0 +1,22 @@
+.detail-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-name {
+    margin: 0 0 16px;
+    font-size: 40px;
+}
+
+.detail-image {
+    width: 80%;
+}
+
+.detail-section {
+    text-align: start;
+}
+
+.detail-section-title {
+    text-align: center;
+}

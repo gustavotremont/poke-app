@@ -9,7 +9,7 @@ const Search = () => {
 
   const [pokemon, setPokemon] = useState('')  
   const [debouncedValue] = useDebounce(pokemon, 2000);
-  const [pokemonCard, setPokemonCard] = useState({})
+  const [pokemonCard, setPokemonCard] = useState('')
   const { addPokeToList } = useContext(pokemonContext)
 
   useEffect(() => {
@@ -25,7 +25,8 @@ const Search = () => {
               name: pokemonData.name,
               script: pokemonData.sprites.other["official-artwork"].front_default,
               typeOne: pokemonData.types[0].type.name,
-              typeTwo: pokemonData.types[1] ? pokemonData.types[1].type.name : ""
+              typeTwo: pokemonData.types[1] ? pokemonData.types[1].type.name : "",
+              origin: 'api'
             }        
             setPokemonCard(newPokemon);
             addPokeToList(newPokemon);
@@ -43,7 +44,7 @@ const Search = () => {
   return (
     <section>
       <Form getPokemon={getPokemon}/>
-      <Card pokeInfo={pokemonCard}/>
+      {pokemonCard ? <Card pokeInfo={pokemonCard}/> : null}
     </section>
   )
 };
