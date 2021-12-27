@@ -1,15 +1,14 @@
 import './Form.css'
 import React from "react";
+import {DebounceInput} from 'react-debounce-input';
 
-const Form = (props) => {
-
-  const handleChange = e => props.getPokemon(e.target.value)
+const Form = ({getPokemon}) => {
 
   return (
     <section>
       <form className='form-body'>
         <label className='form-label' htmlFor="pokemonName">Find a Pokemon</label>
-        <input className='form-Input' type="text" name="pokemonName" id="pokemonName" onChange={handleChange}/>
+        <DebounceInput className='form-Input' minLength={3} debounceTimeout={2000} onChange={e => getPokemon(e.target.value)} />
       </form>
     </section>
   )

@@ -1,16 +1,20 @@
 .card-body {
     margin: 16px;
+    padding: 8px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: #9c5200 5px solid;
+    border: #623108 5px solid;
+    background-color: #de9400;
     border-radius: 5px;
+    transition: 0.5s;
 }
 
 .card-image {
     background-image: url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/0032398f86ea753194c5eeba97eccda2-1627249600/ExportBackgroundnomoveclound/draw-a-pixel-pokemon-battle-background.gif');
     height: 250px;
     border-radius: 50%;
+    border: #292929 2px solid;
 }
 
 .card-name {
