@@ -1,8 +1,4 @@
 .footer-contaier {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-
     display: flex;
     flex-direction: column;
     bottom: 0;
