@@ -1,7 +1,7 @@
 .footer-contaier {
+    margin-top: auto;
     display: flex;
     flex-direction: column;
-    bottom: 0;
     background-color: #623108;
 }
 
