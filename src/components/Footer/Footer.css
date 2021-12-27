@@ -1,11 +1,7 @@
 .footer-contaier {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-
+    margin-top: auto;
     display: flex;
     flex-direction: column;
-    bottom: 0;
     background-color: #623108;
 }
 
